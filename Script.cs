@@ -48,16 +48,16 @@ public void Main(string argument) {
         textDebug += "\n Power kW: " + solar.MaxOutput * 1000; 
         textDebug += "\n Power %: " + percentage; 
         if ( percentage >= 80 ) { 
-            rotor.TargetVelocity = (float) 0; 
+            rotor.SetValueFloat("Velocity", (float) 0); 
             continue; 
         }
 
         // Change Velocity 
-        rotor.TargetVelocity = (float) -0.10; 
+        rotor.SetValueFloat("Velocity", (float) -0.10); 
         textDebug += "\n Angle: " + rotor.Angle; 
         textDebug += "\n Displacement: " + rotor.Displacement; 
         textDebug += "\n Torque: " + rotor.Torque; 
-        textDebug += "\n TargetVelocity: " + rotor.TargetVelocity; 
+        textDebug += "\n Velocity: " + rotor.GetValueFloat("Velocity"); 
     }
   
     // Display Text Debug  
